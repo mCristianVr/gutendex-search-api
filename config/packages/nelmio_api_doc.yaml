@@ -1,0 +1,9 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Gutendex Search API
+            description: REST API for searching and retrieving books from the Gutendex public library.
+            version: 1.0.0
+    areas:
+        path_patterns:
+            - ^/api(?!/doc$)
