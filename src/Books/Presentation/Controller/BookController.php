@@ -20,6 +20,7 @@ final class BookController extends AbstractController
     #[OA\Get(summary: 'Search books by title or author', tags: ['Books'])]
     #[OA\Parameter(name: 'search', in: 'query', required: true, schema: new OA\Schema(type: 'string'))]
     #[OA\Response(response: 200, description: 'List of matching books')]
+    #[OA\Response(response: 400, description: 'Bad request')]
     #[Route('/api/books', methods: ['GET'])]
     public function search(Request $request, SearchBooksUseCase $searchBooksUseCase): JsonResponse
     {
