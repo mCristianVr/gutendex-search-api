@@ -12,10 +12,14 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 
+use OpenApi\Attributes as OA;
+
 final class BookController extends AbstractController
 {
 
-    #[Route('/api/books', methods: ['GET'])]
+    #[OA\Get(summary: 'Search books by title or author', tags: ['Books'])]
+    #[OA\Response(response: 200, description: 'List of matching books')]
+    #[Route('/api/books/search={query}', methods: ['GET'])]
     public function search(Request $request, SearchBooksUseCase $searchBooksUseCase): JsonResponse
     {
         $query = $request->query->get('search', '');
@@ -44,6 +48,9 @@ final class BookController extends AbstractController
         ));
     }
 
+    #[OA\Get(summary: 'Get a book by ID', tags: ['Books'])]
+    #[OA\Response(response: 200, description: 'Book details')]
+    #[OA\Response(response: 404, description: 'Book not found')]
     #[Route('/api/books/{id}', methods: ['GET'])]
     public function getBook(int $id, GetBookUseCase $getBookUseCase): JsonResponse
     {
