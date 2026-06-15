@@ -11,7 +11,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final class GutendexBookRepository implements BookRepositoryPort
 {
-    private const API_URL = 'https://gutendex.com/books';
+    private const API_URL = 'https://gutendex.com/books/';
 
     public function __construct(
         private readonly HttpClientInterface $httpClient
