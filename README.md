@@ -38,3 +38,11 @@ php -S localhost:8000 -t public/
 ```bash
 vendor/bin/phpunit
 ```
+
+## API Documentation
+
+Interactive Swagger UI available at `/api/doc` when the server is running:
+
+```
+http://localhost:8000/api/doc
+```
