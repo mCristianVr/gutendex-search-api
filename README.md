@@ -34,7 +34,20 @@ php -S localhost:8000 -t public/
 ```
 
 ## Tests
+> **Note:** Behat was considered for functional testing but is not yet compatible with Symfony 8. 
+> Symfony's built-in `WebTestCase` was used instead
 
+Run unit tests:
+```bash
+vendor/bin/phpunit tests/Unit/
+```
+
+Run functional tests (requires internet connection to Gutendex):
+```bash
+vendor/bin/phpunit tests/Functional/
+```
+
+Run all tests
 ```bash
 vendor/bin/phpunit
 ```
