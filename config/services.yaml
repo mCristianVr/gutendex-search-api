@@ -23,4 +23,8 @@ services:
     # please note that last definitions always *replace* previous ones
 
     App\Books\Domain\Port\BookRepositoryPort:
-        alias: App\Books\Infrastructure\Repository\GutendexBookRepository
+        alias: App\Books\Infrastructure\Adapter\CachedBookProviderAdapter
+
+    App\Books\Infrastructure\Adapter\CachedBookProviderAdapter:
+        arguments:
+            $bookRepository: '@App\Books\Infrastructure\Repository\GutendexBookRepository'
