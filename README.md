@@ -11,9 +11,19 @@ Built with Hexagonal Architecture and Domain-Driven Design (DDD):
 - **Infrastructure** — Gutendex HTTP adapter
 - **Presentation** — REST controllers
 
+## Caching
+
+Responses are cached using Symfony's filesystem cache (via the Decorator pattern):
+
+- Book search results: 1 hour
+- Individual book details: 1 hour
+
+The `CachedBookProviderAdapter` wraps `GutendexBookRepository` transparently — no changes needed to the domain or application layers.
+
 ## Endpoints
 
 GET /api/books?search={query}  — search books by title/author
+
 GET /api/books/{id}            — get a book by ID
 
 ## Setup
