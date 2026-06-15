@@ -21,3 +21,10 @@ GET /api/books/{id}            — get a book by ID
 ```bash
 composer install
 php -S localhost:8000 -t public/
+```
+
+## Tests
+
+```bash
+vendor/bin/phpunit
+```
